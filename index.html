@@ -1,26 +1,85 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Local Service Admin</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 text-gray-900">
-  <div class="max-w-6xl mx-auto p-4 md:p-8">
+  <main class="max-w-6xl mx-auto p-4 md:p-8">
     <header class="mb-6">
       <h1 class="text-3xl font-bold">Local Service Admin</h1>
       <p class="text-gray-600">Client management, scheduling, and invoices.</p>
     </header>
+
     <nav class="flex gap-2 mb-6 flex-wrap">
       <button class="tab px-4 py-2 rounded bg-blue-600 text-white" data-view="clients">Clients</button>
       <button class="tab px-4 py-2 rounded bg-white border" data-view="schedule">Schedule</button>
       <button class="tab px-4 py-2 rounded bg-white border" data-view="invoices">Invoices</button>
     </nav>
-    <section id="clients" class="view bg-white rounded shadow p-4 mb-4">Client management goes here.</section>
-    <section id="schedule" class="view bg-white rounded shadow p-4 mb-4 hidden">Scheduler goes here.</section>
-    <section id="invoices" class="view bg-white rounded shadow p-4 hidden">Invoice generator goes here.</section>
-  </div>
+
+    <section id="clients" class="view bg-white rounded shadow p-4">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-4">
+        <h2 class="text-xl font-semibold">Clients</h2>
+        <button id="addClientBtn" class="bg-blue-600 text-white px-4 py-2 rounded">
+          Add client
+        </button>
+      </div>
+
+      <input
+        id="searchClient"
+        class="w-full border rounded px-3 py-2 mb-4"
+        placeholder="Search by name, phone, or email"
+      >
+
+      <div id="clientFormBox" class="hidden border rounded p-4 mb-4 bg-gray-50">
+        <h3 id="formTitle" class="font-semibold mb-3">Add client</h3>
+
+        <form id="clientForm" class="grid md:grid-cols-2 gap-3">
+          <input id="clientName" required class="border rounded px-3 py-2" placeholder="Client name">
+          <input id="clientPhone" class="border rounded px-3 py-2" placeholder="Phone">
+          <input id="clientEmail" type="email" class="border rounded px-3 py-2" placeholder="Email">
+          <input id="clientAddress" class="border rounded px-3 py-2" placeholder="Address">
+
+          <div class="md:col-span-2 flex gap-2">
+            <button class="bg-green-600 text-white px-4 py-2 rounded" type="submit">Save client</button>
+            <button id="cancelClientBtn" class="border px-4 py-2 rounded" type="button">Cancel</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="clientEmpty" class="text-gray-500 py-4">
+        No clients yet. Add your first client.
+      </div>
+
+      <div class="overflow-x-auto">
+        <table id="clientTable" class="hidden w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b">
+              <th class="p-2">Name</th>
+              <th class="p-2">Phone</th>
+              <th class="p-2">Email</th>
+              <th class="p-2">Address</th>
+              <th class="p-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="clientRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="schedule" class="view hidden bg-white rounded shadow p-4">
+      <h2 class="text-xl font-semibold mb-2">Schedule</h2>
+      <p class="text-gray-600">Scheduling will be added next.</p>
+    </section>
+
+    <section id="invoices" class="view hidden bg-white rounded shadow p-4">
+      <h2 class="text-xl font-semibold mb-2">Invoices</h2>
+      <p class="text-gray-600">Invoice generation will be added next.</p>
+    </section>
+  </main>
+
   <script src="./assets/app.js"></script>
 </body>
 </html>
