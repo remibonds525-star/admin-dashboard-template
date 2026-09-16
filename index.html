@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Local Service Admin</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <div class="max-w-6xl mx-auto p-4 md:p-8">
+    <header class="mb-6">
+      <h1 class="text-3xl font-bold">Local Service Admin</h1>
+      <p class="text-gray-600">Client management, scheduling, and invoices.</p>
+    </header>
+    <nav class="flex gap-2 mb-6 flex-wrap">
+      <button class="tab px-4 py-2 rounded bg-blue-600 text-white" data-view="clients">Clients</button>
+      <button class="tab px-4 py-2 rounded bg-white border" data-view="schedule">Schedule</button>
+      <button class="tab px-4 py-2 rounded bg-white border" data-view="invoices">Invoices</button>
+    </nav>
+    <section id="clients" class="view bg-white rounded shadow p-4 mb-4">Client management goes here.</section>
+    <section id="schedule" class="view bg-white rounded shadow p-4 mb-4 hidden">Scheduler goes here.</section>
+    <section id="invoices" class="view bg-white rounded shadow p-4 hidden">Invoice generator goes here.</section>
+  </div>
+  <script src="./assets/app.js"></script>
+</body>
+</html>
